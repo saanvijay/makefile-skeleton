@@ -1,17 +1,23 @@
-include makefile.includes
+####################################################################
+#
+# Makefile rules file, define all the functionalities
+#
+####################################################################
+include ../makefile.includes
 
-define copy_rule_body =
+define copy_rule_body 
 	$(COPY) $(COPY_DIR_FLAG) $< $@
 endef
 
-define c_compile_rule_body =
+define c_compile_rule_body 
 	$(CC) $(CFLAGS) $(OFLAG) $@ $<
 endef
 
-define cpp_compile_rule_body =
+define cpp_compile_rule_body 
 	$(CC) $(CFLAGS) $(OFLAG) $@ $<
 endef
 
-define python_compile_rule_body =
+define python_compile_rule_body 
+	echo "yet to be done"
 endef
 

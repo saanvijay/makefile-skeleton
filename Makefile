@@ -1,23 +1,20 @@
-include makefile.rules
+####################################################################
+#
+# Top makefile, here you need to specify the list directories with 
+# dependices, ex: foo dir depends on bar dir.
+# Make utility will travel to least dependency and builds the module
+# then travel back to dependencies and builds the pending dependencies
+#
+####################################################################
 
-
-EXE = myexe
-SRCS = $(wildcard *.cpp)
-OBJS = $(SRCS:.cpp=.o)
-
- 
 .PHONY: all
-all : $(EXE)
+all : exe
+	$(MAKE) -C $<
 
-$(EXE) : $(OBJS)
-	$(CC) $(OFLAG) $@ $^
-
-
-%.o : %.cpp
-	$(cpp_compile_rule_body)
-
-.PHONY: clean
-clean:
-	rm -rf *.o $(EXE)
-
+exe : shared-object 
+	$(MAKE) -C $<
+shared-object : static-library
+	$(MAKE) -C $<
+static-library : bootstrap
+	$(MAKE) -C $<
 

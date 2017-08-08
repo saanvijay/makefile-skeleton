@@ -1,0 +1,12 @@
+COPY := cp
+COPY_DIR_FLAG := -rf
+
+CC := g++
+CFLAGS := -c $(ARCH)
+OFLAG := -o
+PIC := -fPIC 
+DEBUG := -g
+
+LD_FLAGS := -l
+
+

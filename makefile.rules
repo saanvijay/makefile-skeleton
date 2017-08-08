@@ -1,0 +1,17 @@
+include makefile.includes
+
+define copy_rule_body =
+	$(COPY) $(COPY_DIR_FLAG) $< $@
+endef
+
+define c_compile_rule_body =
+	$(CC) $(CFLAGS) $(OFLAG) $@ $<
+endef
+
+define cpp_compile_rule_body =
+	$(CC) $(CFLAGS) $(OFLAG) $@ $<
+endef
+
+define python_compile_rule_body =
+endef
+

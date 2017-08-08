@@ -3,21 +3,27 @@ include ../makefile.rules
 
 EXE = myexe
 SRCS = $(wildcard *.cpp)
-OBJS = $(SRCS:.cpp=.o)
+OBJS := $(patsubst %.cpp, objs/%.o, $(SRCS)) 
+
+VPATH := $(OBJ_DIR) $(BIN_DIR)
 
  
 .PHONY: all
 all : $(EXE)
 
-$(EXE) : $(OBJS)
-	$(CC) $(OFLAG) $@ $^
+$(BIN_DIR)/$(EXE) : $(OBJS)
+	@echo "--------- Creating $(notdir $@) ---------"
+	mkdir -p ${@D}
+	$(CC) $(OFLAG) $@ $^ 
+	@echo "============== DONE ====================="
+	@echo ''
 
 
-%.o : %.cpp
+$(OBJ_DIR)/%.o : %.cpp
 	$(cpp_compile_rule_body)
 
 .PHONY: clean
 clean:
-	rm -rf *.o $(EXE)
+	rm -rf $(OBJ_DIR) $(BIN_DIR) $(EXE)
 
 

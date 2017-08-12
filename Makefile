@@ -8,13 +8,18 @@
 ####################################################################
 
 .PHONY: all
-all : exe 
-	@$(MAKE) -C $<
+all: 
+	@$(MAKE) -C bootstrap
+	@$(MAKE) -C static-library
+	@$(MAKE) -C shared-object
+	@$(MAKE) -C exe
 
-exe : shared-object 
-	@$(MAKE) -C $<
-shared-object : static-library
-	@$(MAKE) -C $<
-static-library : bootstrap
-	@$(MAKE) -C $<
+
+clean: 
+	#@$(MAKE) -C bootstrap $@
+	@$(MAKE) -C static-library $@
+	@$(MAKE) -C shared-object $@
+	@$(MAKE) -C exe $@
+
+
 

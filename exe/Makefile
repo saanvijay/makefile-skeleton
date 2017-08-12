@@ -1,7 +1,7 @@
 include ../makefile.rules
 
 
-EXE = myexe
+EXE = $(BIN_DIR)/myexe
 SRCS = $(wildcard *.cpp)
 OBJS := $(patsubst %.cpp, objs/%.o, $(SRCS)) 
 
@@ -11,7 +11,7 @@ VPATH := $(OBJ_DIR) $(BIN_DIR)
 .PHONY: all
 all : $(EXE)
 
-$(BIN_DIR)/$(EXE) : $(OBJS)
+$(EXE) : $(OBJS)
 	@echo "--------- Creating $(notdir $@) ---------"
 	mkdir -p ${@D}
 	$(CC) $(OFLAG) $@ $^ 

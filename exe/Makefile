@@ -7,6 +7,7 @@ OBJS := $(patsubst %.cpp, objs/%.o, $(SRCS))
 
 VPATH := $(OBJ_DIR) $(BIN_DIR)
 
+DEPS := $(OBJS:.o=.d)
  
 .PHONY: all
 all : $(EXE)
@@ -26,4 +27,4 @@ $(OBJ_DIR)/%.o : %.cpp
 clean:
 	rm -rf $(OBJ_DIR) $(BIN_DIR) $(EXE)
 
-
+-include $(DEPS)

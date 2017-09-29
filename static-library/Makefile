@@ -9,8 +9,6 @@ VPATH := $(OBJ_DIR) $(BIN_DIR)
  
 DEPS := $(OBJS:.o=.d)
 
--include $(DEPS)
-
 .PHONY: all
 all : $(STATIC_LIBRARY)
 
@@ -29,4 +27,4 @@ $(OBJ_DIR)/%.o : %.cpp
 clean:
 	rm -rf $(BIN_DIR) $(OBJ_DIR) $(STATIC_LIBRARY)
 
-
+-include $(DEPS)

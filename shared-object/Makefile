@@ -11,8 +11,6 @@ OBJS := $(patsubst %.cpp, objs/%.o, $(SRCS))
 VPATH := $(OBJ_DIR) $(BIN_DIR)
 
 DEPS := $(OBJS:.o=.d)
-
--include $(DEPS)
  
 .PHONY: all
 all : $(SHARED-OBJECT)
@@ -33,3 +31,4 @@ clean:
 	rm -rf $(OBJ_DIR) $(BIN_DIR) $(SHARED-OBJECT)
 
 
+-include $(DEPS)

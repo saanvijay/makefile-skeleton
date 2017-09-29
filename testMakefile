@@ -23,6 +23,8 @@ cd shared-object
 for i in `seq 1 10`;
 do
 	touch testShared_$i.cpp;
+	touch testShared_$i.h;
+	echo -e "#include \"testShared_$i.h\"" > testShared_$i.cpp
 done
 cd $oldDir
 
@@ -34,5 +36,7 @@ cd static-library
 for i in `seq 1 10`;
 do
 	touch testStatic_$i.cpp;
+	touch testStatic_$i.h;
+	echo -e "#include \"testStatic_$i.h\"" > testStatic_$i.cpp
 done
 cd $oldDir

@@ -17,7 +17,7 @@ endef
 define cpp_compile_rule_body 
 	@echo " ------- $(notdir $<) ----> $(notdir $@) -----"
 	mkdir -p ${@D}
-	$(CC) $(CFLAGS) $(OFLAG) $@ $<
+	$(CC) $(CFLAGS) $(MDFLAG) $(OFLAG) $@ $<
 	@echo ''
 endef
 

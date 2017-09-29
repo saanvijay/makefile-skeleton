@@ -7,6 +7,10 @@ OBJS := $(patsubst %.cpp, objs/%.o, $(SRCS))
 
 VPATH := $(OBJ_DIR) $(BIN_DIR)
  
+DEPS := $(OBJS:.o=.d)
+
+-include $(DEPS)
+
 .PHONY: all
 all : $(STATIC_LIBRARY)
 
@@ -18,7 +22,7 @@ $(STATIC_LIBRARY) : $(OBJS)
 	@echo ''
 
 
-$(OBJ_DIR)/%.o : %.cpp
+$(OBJ_DIR)/%.o : %.cpp 
 	$(cpp_compile_rule_body)
 
 .PHONY: clean

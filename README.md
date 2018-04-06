@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/saanvijay/makefile-skeleton.svg?branch=master)](https://travis-ci.org/saanvijay/makefile-skeleton)
 # makefile-skeleton
 Provide the skeleton for makefile for c,c++ projects in unix based environments
 

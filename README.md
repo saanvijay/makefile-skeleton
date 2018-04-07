@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/saanvijay/makefile-skeleton.svg?branch=master)](https://travis-ci.org/saanvijay/makefile-skeleton)
-![Platforms] (https://img.shields.io/badge/platform-linux-lightgray.svg)
+![Platforms](https://img.shields.io/badge/platform-linux-lightgray.svg)
 
 # makefile-skeleton
 Provide the skeleton for makefile for c,c++ projects in unix based environments

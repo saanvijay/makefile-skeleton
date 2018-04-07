@@ -7,19 +7,24 @@
 #
 ####################################################################
 
-.PHONY: all
-all: 
-	@$(MAKE) -C bootstrap
-	@$(MAKE) -C static-library
-	@$(MAKE) -C shared-object
-	@$(MAKE) -C exe
+SUBDIRS = bootstrap \
+	  exe \
+          static-library \
+          shared-object
+
+.PHONY: all $(SUBDIRS)
+
+all : $(SUBDIRS)
 
 
-clean: 
-	#@$(MAKE) -C bootstrap $@
-	@$(MAKE) -C static-library $@
-	@$(MAKE) -C shared-object $@
-	@$(MAKE) -C exe $@
+$(SUBDIRS):
+	$(MAKE) -C $@
+
+# Makefile dependencies for other Makefiles
+exe: shared-object
+shared-object : static-library
+static-library : bootstrap
+
 
 
 
